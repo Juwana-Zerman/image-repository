@@ -13,6 +13,7 @@ env:
   HOSTINGPLANNAME: "image-repository-plan"
   APPINSIGHTLOCATION: "East US"
   SKU: "B1 Basic"
+  secret_key: ${{secrets.SECRET_KEY}}
 
 jobs:
   Build:
