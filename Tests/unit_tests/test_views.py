@@ -22,7 +22,7 @@ django.setup()
 class ViewTest(TestCase):
     """Tests for the application views."""
 
-    if django.VERSION > 3.1:
+    if django.VERSION:
          # Django 1.7 requires an explicit setup() when running tests in PTVS
         @classmethod
 #     def setUpClass(cls):
@@ -33,17 +33,17 @@ class ViewTest(TestCase):
     def test_unit_home(self):
         """Tests the home page."""
         response = self.client.get('/')
-        self.assertContains(response, 'Home Page', 1, 200)
+        self.assertEqual(response.status_code, 200)
         pass
 
     def test_unit_contact(self):
         """Tests the contact page."""
         response = self.client.get('/contact')
-        self.assertContains(response, 'Contact', 3, 200)
+        self.assertEqual(response.status_code, 200)
         pass
 
     def test_unit_about(self):
         """Tests the about page."""
         response = self.client.get('/about')
-        self.assertContains(response, 'About', 3, 200)
+        self.assertEqual(response, 'About', 3, 200response.status_code, 200)
         pass
