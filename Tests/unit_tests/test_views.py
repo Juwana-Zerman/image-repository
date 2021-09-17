@@ -22,11 +22,11 @@ django.setup()
 class ViewTest(TestCase):
     """Tests for the application views."""
 
-     if django.VERSION[:2] >= (3, 7):
+     # if django.VERSION[:2] >= (3, 7):
          # Django 1.7 requires an explicit setup() when running tests in PTVS
-         @classmethod
-         def setUpClass(cls):
-             super(ViewTest, cls).setUpClass()
+    @classmethod
+    def setUpClass(cls):
+        super(ViewTest, cls).setUpClass()
 
     def test_unit_home(self):
         """Tests the home page."""
