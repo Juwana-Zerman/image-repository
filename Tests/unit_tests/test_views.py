@@ -45,5 +45,5 @@ class ViewTest(TestCase):
     def test_unit_about(self):
         """Tests the about page."""
         response = self.client.get('/about')
-        self.assertEqual(response, 'About', 3, 200response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         pass
