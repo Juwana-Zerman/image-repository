@@ -44,3 +44,17 @@ def about(request):
             'year':datetime.now().year,
         }
     )
+
+
+def login(request):
+    """Renders the login page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'login.html',
+        {
+            'title': 'Login',
+            'message': 'Your application login page.',
+            'year': datetime.now().year,
+        }
+    )
