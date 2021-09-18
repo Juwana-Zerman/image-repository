@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-{% load staticfiles %}
+{% load static %}
 <div class="main-container">
     <div class="cloud-image">
         <img src="{% static "app/img/successCloudNew.svg" %}" />
@@ -10,7 +10,7 @@
         <div class="tweet-container">
             <a href="http://twitter.com/intent/tweet/?text=I%20just%20created%20a%20new%20Python%20Django%20website%20on%20Azure%20using%20Github%20Actions&hashtags=GithubActions%20%40Azure">
                 <img src="{% static "app/img/tweetThis.svg" %}" />
-            </a>            
+            </a>
         </div>
         <div class="content-body">
             <div class="success-text">Success!</div>
