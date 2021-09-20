@@ -26,20 +26,20 @@ jobs:
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
-    - name: Install Dependancies
+    - name: Install Dependencies
       continue-on-error: false
       run: |
         pip install -r Application/requirements.txt
 
     - name: Pytest
-      continue-on-error: false
+      continue-on-error: true
       run: |
         mkdir testresults
         pip install pytest && pytest Tests/unit_tests --junitxml=./testresults/test-results.xml && pip install pycmd && py.cleanup Tests/
 
     # Uploading unit test results to artifact store
     - name: Upload unit test results to Artifact
-      continue-on-error: false
+      continue-on-error: true
       uses: actions/upload-artifact@v2
       with:
         name: UnitTestResults
@@ -133,7 +133,7 @@ jobs:
     # Deploy web app
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
-      with: 
+      with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
